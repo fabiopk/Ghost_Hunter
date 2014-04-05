@@ -39,6 +39,7 @@ public class Arrow {
 				break;
 			case 3:
 				killGhost();
+				hit = true;
 				break;
 
 			}
@@ -62,6 +63,7 @@ public class Arrow {
 				break;
 			case 3:
 				killGhost();
+				hit = true;
 				break;
 
 			}
@@ -85,6 +87,7 @@ public class Arrow {
 				break;
 			case 3:
 				killGhost();
+				hit = true;
 				break;
 
 			}
@@ -108,6 +111,7 @@ public class Arrow {
 				break;
 			case 3:
 				killGhost();
+				hit = true;
 				break;
 
 			}
