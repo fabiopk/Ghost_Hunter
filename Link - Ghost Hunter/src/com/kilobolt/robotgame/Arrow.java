@@ -25,23 +25,27 @@ public class Arrow {
 		if (xbonus <= -120) {
 			xpos -= 1;
 			xbonus = 0;
-			switch (map[xpos - 1][ypos]) {
-			case 0:
-				// Do nothing
-				break;
+			try {
+				switch (map[xpos - 1][ypos]) {
+				case 0:
+					// Do nothing
+					break;
 
-			case 1:
-				hit = true;
-				break;
+				case 1:
+					hit = true;
+					break;
 
-			case 2:
-				// Do nothing
-				break;
-			case 3:
-				killGhost();
-				hit = true;
-				break;
+				case 2:
+					// Do nothing
+					break;
+				case 3:
+					killGhost();
+					hit = true;
+					break;
 
+				}
+			} catch (Exception e) {
+				this.hit = true;
 			}
 		}
 
@@ -49,23 +53,27 @@ public class Arrow {
 			xpos += 1;
 			xbonus = 0;
 
-			switch (map[xpos + 1][ypos]) {
-			case 0:
-				// Do nothing
-				break;
+			try {
+				switch (map[xpos + 1][ypos]) {
+				case 0:
+					// Do nothing
+					break;
 
-			case 1:
-				hit = true;
-				break;
+				case 1:
+					hit = true;
+					break;
 
-			case 2:
-				// Do nothing
-				break;
-			case 3:
-				killGhost();
-				hit = true;
-				break;
+				case 2:
+					// Do nothing
+					break;
+				case 3:
+					killGhost();
+					hit = true;
+					break;
 
+				}
+			} catch (Exception e) {
+				this.hit = true;
 			}
 		}
 
@@ -73,23 +81,27 @@ public class Arrow {
 			ypos -= 1;
 			ybonus = 0;
 
-			switch (map[xpos][ypos - 1]) {
-			case 0:
-				// Do nothing
-				break;
+			try {
+				switch (map[xpos][ypos - 1]) {
+				case 0:
+					// Do nothing
+					break;
 
-			case 1:
-				hit = true;
-				break;
+				case 1:
+					hit = true;
+					break;
 
-			case 2:
-				// Do nothing
-				break;
-			case 3:
-				killGhost();
-				hit = true;
-				break;
+				case 2:
+					// Do nothing
+					break;
+				case 3:
+					killGhost();
+					hit = true;
+					break;
 
+				}
+			} catch (Exception e) {
+				this.hit = true;
 			}
 		}
 
@@ -97,23 +109,27 @@ public class Arrow {
 			ypos += 1;
 			ybonus = 0;
 
-			switch (map[xpos][ypos + 1]) {
-			case 0:
-				// Do nothing
-				break;
+			try {
+				switch (map[xpos][ypos + 1]) {
+				case 0:
+					// Do nothing
+					break;
 
-			case 1:
-				hit = true;
-				break;
+				case 1:
+					hit = true;
+					break;
 
-			case 2:
-				// Do nothing
-				break;
-			case 3:
-				killGhost();
-				hit = true;
-				break;
+				case 2:
+					// Do nothing
+					break;
+				case 3:
+					killGhost();
+					hit = true;
+					break;
 
+				}
+			} catch (Exception e) {
+				this.hit = true;
 			}
 		}
 	}
@@ -122,7 +138,7 @@ public class Arrow {
 		Iterator<Ghost> its = GameScreen.getGhosts().iterator();
 		while (its.hasNext()) {
 			Ghost ghost = its.next();
-				its.remove();
+			its.remove();
 		}
 
 	}
