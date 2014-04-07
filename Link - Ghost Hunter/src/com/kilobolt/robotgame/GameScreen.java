@@ -448,7 +448,6 @@ public class GameScreen extends Screen {
 			switch (itn.getType()) {
 			case Heart:
 				g.drawImage(item_heart, mod_i, mod_j);
-
 				break;
 
 			case Bow:
