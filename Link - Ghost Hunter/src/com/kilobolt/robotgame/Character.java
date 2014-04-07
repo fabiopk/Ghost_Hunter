@@ -177,28 +177,33 @@ public class Character {
 
 	public Arrow shoot() {
 		Arrow ar1;
+		int arrow_speed = 15;
 		switch (state) {
 		case Down:
 			ar1 = new Arrow(this.xpos, this.ypos + 1);
 			ar1.setXspeed(0);
-			ar1.setYspeed(9);
+			ar1.setYspeed(arrow_speed);
+			ar1.setYbonus(-60);
 			return ar1;
 		case Up:
 			ar1 = new Arrow(this.xpos, this.ypos - 1);
 			ar1.setXspeed(0);
-			ar1.setYspeed(-9);
+			ar1.setYspeed(-arrow_speed);
+			ar1.setYbonus(60);
 			return ar1;
 
 		case Left:
 			ar1 = new Arrow(this.xpos - 1, this.ypos);
-			ar1.setXspeed(-9);
+			ar1.setXspeed(-arrow_speed);
 			ar1.setYspeed(0);
+			ar1.setXbonus(60);
 			return ar1;
 
 		case Right:
 			ar1 = new Arrow(this.xpos + 1, this.ypos);
-			ar1.setXspeed(9);
+			ar1.setXspeed(arrow_speed);
 			ar1.setYspeed(0);
+			ar1.setXbonus(-60);
 			return ar1;
 		}
 		return null;

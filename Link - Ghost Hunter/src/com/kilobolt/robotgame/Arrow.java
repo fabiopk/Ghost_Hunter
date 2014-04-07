@@ -18,6 +18,7 @@ public class Arrow {
 
 	public void update() {
 		int[][] map = GameScreen.getTilemap();
+		boolean outsideMap = (xpos >= (GameScreen.getRows() - 1) || ypos >= (GameScreen.getColumns() - 1) || xpos < 0 || ypos <0);
 
 		xbonus += xspeed;
 		ybonus += yspeed;
@@ -25,8 +26,12 @@ public class Arrow {
 		if (xbonus <= -120) {
 			xpos -= 1;
 			xbonus = 0;
-			try {
-				switch (map[xpos - 1][ypos]) {
+			if (xpos >= (GameScreen.getRows() - 1) || ypos >= (GameScreen.getColumns() - 1) || xpos < 0 || ypos <0) {
+				this.hit = true;
+				xpos += 1;
+			} else {
+
+				switch (map[xpos][ypos]) {
 				case 0:
 					// Do nothing
 					break;
@@ -44,17 +49,20 @@ public class Arrow {
 					break;
 
 				}
-			} catch (Exception e) {
-				this.hit = true;
 			}
+
 		}
 
 		if (xbonus >= 120) {
 			xpos += 1;
 			xbonus = 0;
 
-			try {
-				switch (map[xpos + 1][ypos]) {
+			if (xpos >= (GameScreen.getRows() - 1) || ypos >= (GameScreen.getColumns() - 1) || xpos < 0 || ypos <0) {
+				this.hit = true;
+				xpos -= 1;
+			} else {
+
+				switch (map[xpos][ypos]) {
 				case 0:
 					// Do nothing
 					break;
@@ -72,17 +80,20 @@ public class Arrow {
 					break;
 
 				}
-			} catch (Exception e) {
-				this.hit = true;
 			}
+
 		}
 
 		if (ybonus <= -120) {
 			ypos -= 1;
 			ybonus = 0;
 
-			try {
-				switch (map[xpos][ypos - 1]) {
+			if (xpos >= (GameScreen.getRows() - 1) || ypos >= (GameScreen.getColumns() - 1) || xpos < 0 || ypos <0) {
+				this.hit = true;
+				ypos += 1;
+			} else {
+
+				switch (map[xpos][ypos]) {
 				case 0:
 					// Do nothing
 					break;
@@ -100,17 +111,20 @@ public class Arrow {
 					break;
 
 				}
-			} catch (Exception e) {
-				this.hit = true;
 			}
+
 		}
 
 		if (ybonus >= 120) {
 			ypos += 1;
 			ybonus = 0;
 
-			try {
-				switch (map[xpos][ypos + 1]) {
+			if (xpos >= (GameScreen.getRows() - 1) || ypos >= (GameScreen.getColumns() - 1) || xpos < 0 || ypos <0) {
+				this.hit = true;
+				ypos -= 1;
+			} else {
+
+				switch (map[xpos][ypos]) {
 				case 0:
 					// Do nothing
 					break;
@@ -128,9 +142,8 @@ public class Arrow {
 					break;
 
 				}
-			} catch (Exception e) {
-				this.hit = true;
 			}
+
 		}
 	}
 
@@ -138,7 +151,9 @@ public class Arrow {
 		Iterator<Ghost> its = GameScreen.getGhosts().iterator();
 		while (its.hasNext()) {
 			Ghost ghost = its.next();
-			its.remove();
+			if (ghost.getXpos() == this.xpos && ghost.getYpos() == this.ypos) {
+				ghost.kill();
+			}
 		}
 
 	}

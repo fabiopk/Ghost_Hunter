@@ -66,6 +66,9 @@ public class GameScreen extends Screen {
 
 		ghosts = new ArrayList<Ghost>();
 		addGhost();
+		addGhost();
+		addGhost();
+		addGhost();
 
 		items = new ArrayList<Item>();
 		arrows = new ArrayList<Arrow>();
@@ -459,13 +462,13 @@ public class GameScreen extends Screen {
 				break;
 			}
 
-			for (Arrow arrow : arrows) {
-				mod_i = 120 * arrow.getXpos();
-				mod_j = 120 * arrow.getYpos();
-				g.drawImage(shuriken, mod_i + arrow.getXbonus(),
-						mod_j + arrow.getYbonus());
-
 			}
+
+		for (Arrow arrow : arrows) {
+			mod_i = 120 * arrow.getXpos();
+			mod_j = 120 * arrow.getYpos();
+			g.drawImage(shuriken, mod_i + arrow.getXbonus(),
+					mod_j + arrow.getYbonus());
 
 		}
 
