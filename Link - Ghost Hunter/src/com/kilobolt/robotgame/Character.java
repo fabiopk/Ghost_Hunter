@@ -17,9 +17,11 @@ public class Character {
 	protected boolean isMoving = false;
 	private int linkSpeed;
 	private int[][] maps = GameScreen.getTilemap();
+	private int arrows;
 	private int life;
 
 	public Character() {
+		arrows = 3;
 		life = 3;
 		linkSpeed = 6;
 		int[][] mapa = GameScreen.getTilemap();
@@ -205,8 +207,14 @@ public class Character {
 			ar1.setYspeed(0);
 			ar1.setXbonus(-60);
 			return ar1;
+
+		default:
+			ar1 = new Arrow(this.xpos + 1, this.ypos);
+			ar1.setHit(true);
+			// Since I am returning an arrow, if the character is not standing,
+			// returns an arrow "already hit"
+			return ar1;
 		}
-		return null;
 	}
 
 	public int getXpos() {
