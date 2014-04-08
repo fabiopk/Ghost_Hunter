@@ -213,6 +213,7 @@ public class Character {
 			ar1.setHit(true);
 			// Since I am returning an arrow, if the character is not standing,
 			// returns an arrow "already hit"
+			//ADdasda
 			return ar1;
 		}
 	}
